@@ -1,6 +1,6 @@
 require("dotenv").config();
 const express = require('express');
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 443;
 const app = express();
 const server = require("http").createServer(app);
 // trobleshooting for socket.io servers: https://socket.io/docs/v3/troubleshooting-connection-issues/
