@@ -1,9 +1,10 @@
-const socket = io();
+let socket = io();
 
 const SpeechRecognition =
     window.SpeechRecognition || window.webkitSpeechRecognition;
 
 const recognition = new SpeechRecognition();
+const synth = window.speechSynthesis;
 
 // From the Web Speech API documentation https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API/Using_the_Web_Speech_API
 
@@ -22,6 +23,15 @@ recognition.onresult = (e) => {
     const confidence = e.results[0][0].confidence;
 
     socket.emit('msg', text);
-
-    console.log(text);
 };
+
+// list of voices for return
+
+socket.on("res", (arg) => {
+    const utterThis = new SpeechSynthesisUtterance();
+    utterThis.text = arg;
+    voices = synth.getVoices();
+    // Google US - Voice Option
+    utterThis.voice = voices[144];
+    synth.speak(utterThis);
+});
