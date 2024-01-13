@@ -1,6 +1,7 @@
 # ai-chatbot
 AI chatbot built on Node.JS and Express framework
 
+## Currently only supported for Chrome Browser
 ## <a href="https://ai-chatbot-hx0o.onrender.com/">Live Preview</a>
 
 ![Screenshot 2024-01-13 at 13 18 16](https://github.com/sehyunlee217/ai-chatbot/assets/121660178/dc537401-0397-474a-984c-3c46b8dd68c3)
