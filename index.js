@@ -38,7 +38,7 @@ io.on('connection', socket => {
                     model: "gpt-4",
                     messages: [{
                         "role": "user",
-                        "content": "Summmarize the response to" + text
+                        "content": "One sentence response to" + text
                     }]
                 });
                 console.log(completion.choices[0].message.content);
@@ -49,8 +49,6 @@ io.on('connection', socket => {
             console.log(err);
         }
     });
-
-    console.log("user connected!");
 });
 
 server.listen(PORT, () => { console.log(`Server runnning on PORT ${ PORT }`); })
