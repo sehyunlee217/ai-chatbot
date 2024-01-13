@@ -13,15 +13,18 @@ recognition.lang = "en-US";
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
+const pulse = document.getElementById("pulse");
+const content = document.getElementById("return-text");
+
 document.querySelector("button").addEventListener("click", () => {
     recognition.start();
     console.log("ready to receive speech data");
+    pulse.classList.add('pulse-active');
 });
 
 recognition.onresult = (e) => {
     const text = e.results[0][0].transcript;
     const confidence = e.results[0][0].confidence;
-
     socket.emit('msg', text);
 };
 
@@ -33,5 +36,8 @@ socket.on("res", (arg) => {
     voices = synth.getVoices();
     // Google US - Voice Option
     utterThis.voice = voices[144];
+
     synth.speak(utterThis);
+    content.innerHTML = utterThis.text;
+    pulse.classList.remove('pulse-active');
 });

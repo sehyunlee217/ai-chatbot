@@ -4,12 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div>This is some content</div>
-    <button>Talk</button>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="script/script.js"></script>
+    <div class="wrapper">
+      <div class="content">
+        <div id="return-box">
+          <div id="return-text">Click Button Below to Talk</div>
+        </div>
+        <div>
+          <div id="pulse"></div>
+          <button>
+            <i class="material-icons md-48">mic</i>
+          </button>
+        </div>
+      </div>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="script/script.js"></script>
+    </div>
   </body>
 </html>
