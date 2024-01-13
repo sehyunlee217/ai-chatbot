@@ -38,7 +38,7 @@ io.on('connection', socket => {
                     model: "gpt-4",
                     messages: [{
                         "role": "user",
-                        "content": text
+                        "content": "Summmarize the response to" + text
                     }]
                 });
                 console.log(completion.choices[0].message.content);
